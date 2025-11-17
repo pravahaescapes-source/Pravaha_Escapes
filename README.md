@@ -1,227 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Escape Travel & Corporate Retreats</title>
-
-  <!-- GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prāvaha Escape — Escape Travel & Corporate Retreats</title>
   <style>
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: #fafafa;
-      color: #333;
-      scroll-behavior: smooth;
+    :root{
+      /* Replace these hex values with the exact colours from your logo if you have them */
+      --brand-primary: #0B6E6B; /* teal/green - main brand colour */
+      --brand-secondary: #F4C95D; /* warm accent */
+      --brand-dark: #072F2E; /* deep accent for text */
+      --muted: #F6F7F8;
+      --glass: rgba(255,255,255,0.85);
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
 
-    /* BRAND COLORS */
-    :root {
-      --primary: #ff8c00;
-      --dark: #222;
-      --light: #ffffff;
-    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--muted),#ffffff);color:var(--brand-dark);}
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;background:transparent}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--brand-primary),var(--brand-secondary));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
+    .logo .title{font-weight:700;letter-spacing:0.6px}
+    nav a{margin-left:18px;text-decoration:none;color:var(--brand-dark);font-weight:600}
 
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: var(--light);
-      padding: 15px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-    nav h1 { margin: 0; color: var(--primary); font-size: 1.5rem; font-weight: 700; }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-    }
-    nav a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 600;
-    }
-    nav a:hover {
-      color: var(--primary);
-    }
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 28px;max-width:1200px;margin:28px auto}
+    .hero-left h1{font-size:38px;margin:0 0 12px}
+    .hero-left p{margin:0 0 20px;color:#334;line-height:1.5}
+    .cta{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--brand-primary);color:white;text-decoration:none;font-weight:700}
+    .secondary-cta{margin-left:12px;padding:10px 16px;border-radius:12px;border:2px solid var(--brand-primary);background:transparent;text-decoration:none;color:var(--brand-primary);font-weight:700}
 
-    /* HERO */
-    .hero {
-      margin-top: 80px;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80') center/cover;
-      height: 100vh;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
+    .card{background:var(--glass);border-radius:var(--radius);padding:18px;box-shadow:0 8px 30px rgba(9,30,30,0.06)}
+    .stats{display:flex;gap:12px;margin-top:16px}
+    .stat{flex:1;text-align:center}
+    .stat h3{margin:6px 0 0}
 
-    .hero h1 { font-size: 3rem; }
-    .btn { padding: 12px 25px; background: var(--primary); color: white; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 15px; }
+    footer{border-top:1px solid #e9eef0;padding:28px;color:#667;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:24px auto}
 
-    /* SECTION */
-    section { padding: 80px 10%; }
-    h2 { font-size: 2rem; text-transform: uppercase; margin-bottom: 20px; }
-    .highlight { color: var(--primary); }
-
-    /* ANIMATION */
-    .reveal { opacity: 0; transform: translateY(40px); transition: 0.9s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0px); }
-
-    /* CARD GRID */
-    .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 25px; }
-    .card { background: white; border-radius: 14px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .card img { width: 100%; border-radius: 10px; }
-
-    /* GALLERY */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-    .gallery img { width: 100%; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
-
-    /* TESTIMONIALS */
-    .testimonial { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-
-    /* CONTACT */
-    .contact-box { max-width: 450px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    input, textarea { width: 100%; padding: 10px; margin-top: 10px; border-radius: 8px; border: 1px solid #ccc; }
-    button { padding: 12px; background: var(--primary); color: white; border: none; border-radius: 8px; margin-top: 15px; width: 100%; font-size: 1rem; }
-
-    /* FOOTER */
-    footer { text-align: center; padding: 20px; background: var(--dark); color: white; }
-
-    /* WHATSAPP BUTTON */
-    .whatsapp {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25d366;
-      padding: 15px;
-      border-radius: 50%;
-      color: white;
-      font-size: 25px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      z-index: 999;
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;padding:28px}
+      nav{display:none}
     }
   </style>
 </head>
 <body>
-
-<!-- NAVBAR -->
-<nav>
-  <h1>Escape</h1>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO SECTION -->
-<div class="hero" id="home">
-  <div class="reveal">
-    <h1>Escape The Ordinary</h1>
-    <p>Your Corporate & Weekend Travel Partner</p>
-    <a class="btn" href="#events">Explore Events</a>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about" class="reveal">
-  <h2>About <span class="highlight">Us</span></h2>
-  <p>We create weekend getaways, corporate offsites, marathons, cycling tours, and burnout recovery programs for Pune & Mumbai. B2B + B2C experiences curated for joy and wellness.</p>
-</section>
-
-<!-- EVENTS -->
-<section id="events" class="reveal">
-  <h2>Upcoming <span class="highlight">Events</span></h2>
-  <div class="card-container">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80" />
-      <h3>Kalsubai Sunrise Trek</h3>
-      <p>Experience Maharashtra’s highest peak.</p>
+  <header>
+    <div class="logo">
+      <div class="mark">P</div>
+      <div>
+        <div style="font-size:16px;color:var(--brand-dark);">Prāvaha</div>
+        <div style="font-size:12px;color:#6b6b6b;margin-top:2px">Escape</div>
+      </div>
     </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=600&q=80" />
-      <h3>Corporate Offsite</h3>
-      <p>Team bonding games + nature + wellness.</p>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#corporate">Corporate</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Prāvaha Escape — Reconnect. Recharge. Return inspired.</h1>
+        <p>Curated weekend escapes and corporate retreats — trekking, cycling, creative workshops, and team rituals designed to fight burnout and build stronger teams.
+        </p>
+        <a class="cta" href="#contact">Plan an Escape</a>
+        <a class="secondary-cta" href="#services">See Services</a>
+
+        <div class="stats">
+          <div class="stat card">
+            <div style="font-size:12px;color:#445;">Events organised</div>
+            <h3>120+</h3>
+          </div>
+          <div class="stat card">
+            <div style="font-size:12px;color:#445;">Corporate clients</div>
+            <h3>40+</h3>
+          </div>
+          <div class="stat card">
+            <div style="font-size:12px;color:#445;">Avg rating</div>
+            <h3>4.7/5</h3>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin:0 0 8px">Upcoming: Coastal Trek Weekend</h3>
+        <p style="margin:0 0 12px;color:#254">2 nights • Expert guides • Pottery & mindfulness sessions</p>
+        <a class="cta" href="#">Book Now</a>
+      </aside>
+    </section>
+
+    <section id="services" style="max-width:1200px;margin:8px auto;padding:28px">
+      <h2 style="margin-top:0">What we do</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <div class="card">
+          <h4 style="margin:0 0 8px">Corporate Retreats</h4>
+          <p style="margin:0;color:#334">Team-building, strategy offsites and burnout recovery programs tailored to your company size.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 8px">Weekend Escapes</h4>
+          <p style="margin:0;color:#334">Curated small-group adventures — trekking, cycling, and nature immersion.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 8px">Creative Workshops</h4>
+          <p style="margin:0;color:#334">Pottery, art, and mindfulness sessions to help teams reset and bond.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Prāvaha Escape • Designed for corporate wellbeing</div>
+    <div style="display:flex;gap:16px">
+      <a href="#contact" style="text-decoration:none;color:var(--brand-primary);font-weight:700">Get in touch</a>
+      <a href="#" style="text-decoration:none;color:#667">Privacy</a>
     </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1520975698519-59cde193b6cf?auto=format&fit=crop&w=600&q=80" />
-      <h3>Pottery Workshop</h3>
-      <p>Relax your mind & boost creativity.</p>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery" class="reveal">
-  <h2>Photo <span class="highlight">Gallery</span></h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" />
-    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80" />
-    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" />
-    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" />
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="reveal">
-  <h2>What <span class="highlight">Clients Say</span></h2>
-  <div class="card-container">
-    <div class="testimonial">
-      <p>“Amazing energy! Our corporate offsite was perfectly organized.”</p>
-      <b>— Deloitte Team</b>
-    </div>
-    <div class="testimonial">
-      <p>“Best sunrise trek experience ever, very safe and fun.”</p>
-      <b>— Sneha</b>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="reveal">
-  <h2>Contact <span class="highlight">Us</span></h2>
-  <div class="contact-box">
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="4" placeholder="Message"></textarea>
-      <button>Send</button>
-    </form>
-  </div>
-</section>
-
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">💬</a>
-
-<!-- FOOTER -->
-<footer>
-  © 2025 Escape Travel & Corporate Retreats
-</footer>
-
-<!-- ANIMATION SCRIPT -->
-<script>
-  window.addEventListener('scroll', () => {
-    document.querySelectorAll('.reveal').forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) sec.classList.add('active');
-    });
-  });
-</script>
-
+  </footer>
 </body>
 </html>
