@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prāvaha Escape — Escape Travel & Corporate Retreats</title>
+  <style>
+    :root{
+      /* Replace these hex values with the exact colours from your logo if you have them */
+      --brand-primary: #0B6E6B; /* teal/green - main brand colour */
+      --brand-secondary: #F4C95D; /* warm accent */
+      --brand-dark: #072F2E; /* deep accent for text */
+      --muted: #F6F7F8;
+      --glass: rgba(255,255,255,0.85);
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--muted),#ffffff);color:var(--brand-dark);}
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;background:transparent}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--brand-primary),var(--brand-secondary));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
+    .logo .title{font-weight:700;letter-spacing:0.6px}
+    nav a{margin-left:18px;text-decoration:none;color:var(--brand-dark);font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 28px;max-width:1200px;margin:28px auto}
+    .hero-left h1{font-size:38px;margin:0 0 12px}
+    .hero-left p{margin:0 0 20px;color:#334;line-height:1.5}
+    .cta{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--brand-primary);color:white;text-decoration:none;font-weight:700}
+    .secondary-cta{margin-left:12px;padding:10px 16px;border-radius:12px;border:2px solid var(--brand-primary);background:transparent;text-decoration:none;color:var(--brand-primary);font-weight:700}
+
+    .card{background:var(--glass);border-radius:var(--radius);padding:18px;box-shadow:0 8px 30px rgba(9,30,30,0.06)}
+    .stats{display:flex;gap:12px;margin-top:16px}
+    .stat{flex:1;text-align:center}
+    .stat h3{margin:6px 0 0}
+
+    footer{border-top:1px solid #e9eef0;padding:28px;color:#667;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:24px auto}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;padding:28px}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="mark">P</div>
+      <div>
+        <div style="font-size:16px;color:var(--brand-dark);">Prāvaha</div>
+        <div style="font-size:12px;color:#6b6b6b;margin-top:2px">Escape</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#corporate">Corporate</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Prāvaha Escape — Reconnect. Recharge. Return inspired.</h1>
+        <p>Curated weekend escapes and corporate retreats — trekking, cycling, creative workshops, and team rituals designed to fight burnout and build stronger teams.
+        </p>
+        <a class="cta" href="#contact">Plan an Escape</a>
+        <a class="secondary-cta" href="#services">See Services</a>
+
+        <div class="stats">
+          <div class="stat card">
+            <div style="font-size:12px;color:#445;">Events organised</div>
+            <h3>120+</h3>
+          </div>
+          <div class="stat card">
+            <div style="font-size:12px;color:#445;">Corporate clients</div>
+            <h3>40+</h3>
+          </div>
+          <div class="stat card">
+            <div style="font-size:12px;color:#445;">Avg rating</div>
+            <h3>4.7/5</h3>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin:0 0 8px">Upcoming: Coastal Trek Weekend</h3>
+        <p style="margin:0 0 12px;color:#254">2 nights • Expert guides • Pottery & mindfulness sessions</p>
+        <a class="cta" href="#">Book Now</a>
+      </aside>
+    </section>
+
+    <section id="services" style="max-width:1200px;margin:8px auto;padding:28px">
+      <h2 style="margin-top:0">What we do</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <div class="card">
+          <h4 style="margin:0 0 8px">Corporate Retreats</h4>
+          <p style="margin:0;color:#334">Team-building, strategy offsites and burnout recovery programs tailored to your company size.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 8px">Weekend Escapes</h4>
+          <p style="margin:0;color:#334">Curated small-group adventures — trekking, cycling, and nature immersion.</p>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 8px">Creative Workshops</h4>
+          <p style="margin:0;color:#334">Pottery, art, and mindfulness sessions to help teams reset and bond.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Prāvaha Escape • Designed for corporate wellbeing</div>
+    <div style="display:flex;gap:16px">
+      <a href="#contact" style="text-decoration:none;color:var(--brand-primary);font-weight:700">Get in touch</a>
+      <a href="#" style="text-decoration:none;color:#667">Privacy</a>
+    </div>
+  </footer>
+</body>
+</html>
